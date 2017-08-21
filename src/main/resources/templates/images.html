@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+    <h1>Images</h1>
+
+    <table>
+        <!--/*@thymesVar id="resourceFiles" type="java.util.Collection"*/-->
+        <tr>
+            <th>Filename</th>
+            <th>Size</th>
+        </tr>
+        <tr th:each="file : ${resourceFiles}">
+            <!--/*@thymesVar id="file" type="com.fermanis.ResourceFile"*/-->
+            <td>
+                <a th:text="${file.name}" th:href="'images/' + ${file.id}">Image1</a>
+            </td>
+            <td>
+                <span th:text="${file.getSize()}">16MB</span>
+            </td>
+
+        </tr>
+    </table>
+
+    <a th:href="upload">Add New File</a>
+
+
+</body>
+</html>
